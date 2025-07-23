@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunaria Café & Books</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M2 21h20v-2H2v2zm1.5-3h17l-1.5-1.5v-7c0-3.07-1.63-5.64-4.5-6.32V2.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C8.63 3.86 7 6.43 7 9.5v7L5.5 18zm4.5-6.5c0-2.49 2.01-4.5 4.5-4.5s4.5 2.01 4.5 4.5-.01 4.5-4.5 4.5-4.5-2.01-4.5-4.5z"/>
+                    </svg>
+                    <h1>Lunaria Café & Books</h1>
+                </div>
+                <nav>
+                    <a href="#inicio">Inicio</a>
+                    <a href="link/menu.html">Menú</a>
+                    <a href="link/libreria.html">Libros</a>
+                    <a href="link/eventos.html">Eventos</a>
+                    <a href="link/nosotros.html">Nosotros</a>
+                    <a href="link/contacto.html">Contacto</a>
+                </nav>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+                    <a href="link/menu.html" onclick="closeMobileMenu()">Menú</a>
+                    <a href="link/libreria.html" onclick="closeMobileMenu()">Libros</a>
+                    <a href="link/eventos.html" onclick="closeMobileMenu()">Eventos</a>
+                    <a href="link/contacto.html" onclick="closeMobileMenu()">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="badge">Café Boutique & Librería</span>
+                    <h2>Un rincón de café y lectura en el corazón de Buenos Aires</h2>
+                    <p>Donde los aromas del café se mezclan con las historias de los libros. Un espacio acogedor para leer, compartir y disfrutar.</p>
+                    <div class="hero-buttons">
+                        <a href="link/menu.html" class="btn btn-primary">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M2 21h20v-2H2v2zm1.5-3h17l-1.5-1.5v-7c0-3.07-1.63-5.64-4.5-6.32V2.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C8.63 3.86 7 6.43 7 9.5v7L5.5 18z"/>
+                            </svg>
+                            Ver Menú
+                        </a>
+                        <a href="link/libreria.html" class="btn btn-outline">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+                            </svg>
+                            Explorar Libros
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/img/robert-bye-F2eHfMwIOxA-unsplash.jpg" alt="Interior acogedor de Lunaria Café & Books">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h3>Sobre Nosotros</h3>
+            <p>Lunaria es un café boutique con librería propia, donde los aromas del café se mezclan con las historias de los libros. Un espacio acogedor para leer, compartir y disfrutar.</p>
+        </div>
+    </section>
+
+    <!-- Featured Sections -->
+    <section class="featured">
+        <div class="container">
+            <div class="featured-grid">
+                <!-- Libros Recomendados -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1z"/>
+                            </svg>
+                            <h4>Libros Recomendados</h4>
+                        </div>
+                        <div>
+                            <div class="book-item">
+                                <p class="book-title">"El infinito en un junco"</p>
+                                <p class="book-author">Irene Vallejo</p>
+                            </div>
+                            <div class="book-item">
+                                <p class="book-title">"Rayuela"</p>
+                                <p class="book-author">Julio Cortázar</p>
+                            </div>
+                            <div class="book-item">
+                                <p class="book-title">"Pequeñas cosas bellas"</p>
+                                <p class="book-author">Cheryl Strayed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto Estrella -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <h4>Producto del Mes</h4>
+                        </div>
+                        <div class="product-center">
+                            <img src="assets/img/f1280x720-28611_160286_5050-4261813790.jpg" alt="Latte de lavanda" class="product-image">
+                            <h5 class="product-title">Latte de Lavanda</h5>
+                            <p class="product-description">Una experiencia única que combina el aroma relajante de la lavanda con nuestro café premium.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento Destacado -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                            </svg>
+                            <h4>Próximo Evento</h4>
+                        </div>
+                        <div class="product-center">
+                            <span class="event-badge">Próximo Sábado</span>
+                            <h5 class="event-title">Noche de lectura con autores locales</h5>
+                            <p class="event-description">Únete a una velada especial donde autores porteños compartirán sus obras más recientes.</p>
+                            <a href="link/eventos.html" class="btn btn-outline btn-sm">Más información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h3>Lo que dicen nuestros clientes</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"Un lugar mágico, ideal para desconectar."</p>
+                    <p class="testimonial-author">– Clara P.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg class="star" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"El mejor café de la ciudad y una gran selección de libros."</p>
+                    <p class="testimonial-author">– Martín D.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h3>¿Listo para vivir la experiencia Lunaria?</h3>
+            <p>Reservá tu mesa o suscribite a nuestras novedades para no perderte ningún evento especial ni recomendación literaria.</p>
+            <div class="cta-buttons">
+                <a href="link/reservas.html" class="btn btn-white">Reservá tu mesa</a>
+                <a href="#newsletter" class="btn btn-outline-white">Suscribite a novedades</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M2 21h20v-2H2v2zm1.5-3h17l-1.5-1.5v-7c0-3.07-1.63-5.64-4.5-6.32V2.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C8.63 3.86 7 6.43 7 9.5v7L5.5 18z"/>
+                        </svg>
+                        <h4>Lunaria Café & Books</h4>
+                    </div>
+                    <p class="footer-description">Un rincón de café y lectura en el corazón de Buenos Aires.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Contacto</h5>
+                    <div class="contact-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <span>Av. Corrientes 1234, CABA</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <span>+54 11 1234-5678</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <span>hola@lunariacafe.com</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h5>Horarios</h5>
+                    <div class="hours">
+                        <p>Lunes a Viernes: 8:00 - 22:00</p>
+                        <p>Sábados: 9:00 - 23:00</p>
+                        <p>Domingos: 10:00 - 21:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Lunaria Café & Books. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

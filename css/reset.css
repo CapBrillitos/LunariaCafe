@@ -1,0 +1,49 @@
+/* Elimina márgenes y paddings por defecto en todos los elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mejora el flujo de altura y ancho en root */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #111;
+}
+
+/* Imágenes y medios: no se desbordan y se comportan como bloques */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Listas sin viñetas por defecto */
+ul, ol {
+  list-style: none;
+}
+
+/* Enlaces sin decoración por defecto */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Mejora tipografía para elementos de bloque */
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: normal;
+}
+
+/* Mejora del scroll en dispositivos modernos */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Evita saltos raros con iframe y tablas */
+iframe, table {
+  border: 0;
+  width: 100%;
+}
