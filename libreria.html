@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería - Lunaria Café & Books</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css">
+    <style>
+        :root {
+            --amber-50: #fffbeb;
+            --amber-100: #fef3c7;
+            --amber-200: #fde68a;
+            --amber-600: #d97706;
+            --amber-700: #b45309;
+            --amber-800: #92400e;
+            --amber-900: #78350f;
+            --orange-100: #ffedd5;
+            --orange-600: #ea580c;
+            --green-100: #dcfce7;
+            --green-800: #166534;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--amber-900);
+            background-color: var(--amber-50);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-bottom: 1px solid var(--amber-100);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--amber-600);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--amber-900);
+        }
+
+        nav {
+            display: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--amber-800);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--amber-600);
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--amber-100), var(--orange-100));
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--amber-900);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--amber-700);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .genres {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .genre-tag {
+            background: var(--amber-200);
+            color: var(--amber-800);
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .genre-tag:hover {
+            background: var(--amber-300);
+        }
+
+        /* Books Content */
+        .books-content {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .books-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .books-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .books-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .book-card {
+            background: var(--amber-50);
+            border: 1px solid var(--amber-200);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .book-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: var(--amber-200);
+        }
+
+        .book-info {
+            padding: 1.5rem;
+        }
+
+        .book-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--amber-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .book-author {
+            color: var(--amber-600);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .book-synopsis {
+            color: var(--amber-700);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .book-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .book-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--amber-600);
+        }
+
+        .availability {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .availability.sala {
+            background: var(--green-100);
+            color: var(--green-800);
+        }
+
+        .availability.venta {
+            background: var(--amber-200);
+            color: var(--amber-800);
+        }
+
+        .availability.both {
+            background: linear-gradient(90deg, var(--green-100) 50%, var(--amber-200) 50%);
+            color: var(--amber-800);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--amber-900);
+            color: rgba(255,255,255,0.9);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #fbbf24;
+        }
+
+        .footer-logo h4 {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .footer-description {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-section h5 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .contact-item svg {
+            width: 1rem;
+            height: 1rem;
+            color: #fbbf24;
+        }
+
+        .hours {
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--amber-800);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid var(--amber-100);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 1rem;
+            color: var(--amber-800);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber-100);
+        }
+
+        .mobile-menu a:hover {
+            background: var(--amber-50);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M2 21h20v-2H2v2zm1.5-3h17l-1.5-1.5v-7c0-3.07-1.63-5.64-4.5-6.32V2.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C8.63 3.86 7 6.43 7 9.5v7L5.5 18z"/>
+                    </svg>
+                    <h1>Lunaria Café & Books</h1>
+                </a>
+                <nav>
+                    <a href="../index.html">Inicio</a>
+                    <a href="menu.html">Menú</a>
+                    <a href="libreria.html" class="active">Libros</a>
+                    <a href="eventos.html">Eventos</a>
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="contacto.html">Contacto</a>
+                </nav>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="../index.html" onclick="closeMobileMenu()">Inicio</a>
+                    <a href="menu.html" onclick="closeMobileMenu()">Menú</a>
+                    <a href="libreria.html" onclick="closeMobileMenu()">Libros</a>
+                    <a href="eventos.html" onclick="closeMobileMenu()">Eventos</a>
+                    <a href="nosotros.html" onclick="closeMobileMenu()">Nosotros</a>
+                    <a href="contacto.html" onclick="closeMobileMenu()">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Nuestra Librería</h1>
+            <p>Descubrí una cuidada selección de libros para todos los gustos</p>
+            <div class="genres">
+                <a href="#ficcion" class="genre-tag">Ficción</a>
+                <a href="#ensayo" class="genre-tag">Ensayo</a>
+                <a href="#poesia" class="genre-tag">Poesía</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Content -->
+    <section class="books-content">
+        <div class="container">
+            <div class="books-grid">
+                <!-- La uruguaya -->
+                <div class="book-card">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-7Y6EkqAtSO8%2FWSSd1yOao9I%2FAAAAAAAAXqo%2F7UHp0-cSOpY2c0CznWA3wAxoAANam7R-QCLcB%2Fs1600%2FLaUruguaya.jpg&f=1&nofb=1&ipt=e097cf5c79c8f79c4ed4143c47f25542a280eb265e599dad9f22d71060d25e32" alt="La uruguaya" class="book-image">
+                    <div class="book-info">
+                        <h3 class="book-title">"La uruguaya"</h3>
+                        <p class="book-author">Pedro Mairal</p>
+                        <p class="book-synopsis">Un viaje breve que transforma al protagonista.</p>
+                        <div class="book-details">
+                            <span class="book-price">$6700</span>
+                            <span class="availability both">Sala y venta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Matar a un ruiseñor -->
+                <div class="book-card">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-EIM5eufVKRM%2FVdpeZGhdrrI%2FAAAAAAAASOE%2FmpvKinWIEOE%2Fs1600%2Fmatar-un-ruise%2525C3%2525B1or-harper-lee-nuevaedici%2525C3%2525B3n-harpercollinsespa%2525C3%2525B1ol-to-kill-a-mockinbird.jpg&f=1&nofb=1&ipt=90aa95ba012506a5dc29db3787735b6be97e49bfe0adb904bc74bf334e761bcd" alt="Matar a un ruiseñor" class="book-image">
+                    <div class="book-info">
+                        <h3 class="book-title">"Matar a un ruiseñor"</h3>
+                        <p class="book-author">Harper Lee</p>
+                        <p class="book-synopsis">Clásico sobre justicia y racismo en EE.UU.</p>
+                        <div class="book-details">
+                            <span class="book-price">$7200</span>
+                            <span class="availability venta">Venta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Antología de Poesía Argentina -->
+                <div class="book-card">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcadaverexquisito.com.ar%2Fstorage%2Fimages%2FlwG3Fde4crHP8fFiPmfLK0xAL2A31jMTfQfhdW95.jpg&f=1&nofb=1&ipt=89cc7c6aa959f073da0fba21b20f324c1d566c2a62e47c7d47ab5ea38ee63c0b" alt="Antología de Poesía Argentina Contemporánea" class="book-image">
+                    <div class="book-info">
+                        <h3 class="book-title">"Antología de Poesía Argentina Contemporánea"</h3>
+                        <p class="book-author">Varios autores</p>
+                        <p class="book-synopsis">Selección de poetas emergentes y consagrados.</p>
+                        <div class="book-details">
+                            <span class="book-price">$6000</span>
+                            <span class="availability sala">Sala</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M2 21h20v-2H2v2zm1.5-3h17l-1.5-1.5v-7c0-3.07-1.63-5.64-4.5-6.32V2.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C8.63 3.86 7 6.43 7 9.5v7L5.5 18z"/>
+                        </svg>
+                        <h4>Lunaria Café & Books</h4>
+                    </div>
+                    <p class="footer-description">Un rincón de café y lectura en el corazón de Buenos Aires.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Contacto</h5>
+                    <div class="contact-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <span>Av. Corrientes 1520, CABA</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <span>+54 11 5555-1234</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <span>hola@lunariacafe.com</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h5>Horarios</h5>
+                    <div class="hours">
+                        <p>Lunes a Viernes: 9:00 - 20:00</p>
+                        <p>Sábado y Domingo: 10:00 - 22:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Lunaria Café & Books. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
